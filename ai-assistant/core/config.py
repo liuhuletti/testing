@@ -78,9 +78,12 @@ def build_tts_config(settings: dict) -> TTSConfig:
 
 
 def build_llm_config(settings: dict) -> LLMConfig:
+    import os
     s = settings.get("llm", {})
+    backend = os.getenv("LLM_BACKEND", "claude").lower()
+    default_model = "gemini-2.0-flash" if backend == "gemini" else "claude-sonnet-4-6"
     return LLMConfig(
-        model=s.get("model", "claude-sonnet-4-6"),
+        model=s.get("model", default_model),
         max_tokens=s.get("max_tokens", 1024),
         temperature=s.get("temperature", 1.0),
     )

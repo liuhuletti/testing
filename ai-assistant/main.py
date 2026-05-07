@@ -67,7 +67,7 @@ def run(text_mode: bool = False, no_tts: bool = False) -> None:
     from core.speech.listener import AudioListener
     from core.speech.transcriber import Transcriber
     from core.tts.synthesizer import create_tts
-    from core.llm.client import LLMClient
+    from core.llm.factory import create_llm_client
     from core.router.router import Router
     from core.memory.conversation import ConversationMemory
     from core.personality.loader import PersonalityLoader
@@ -89,7 +89,7 @@ def run(text_mode: bool = False, no_tts: bool = False) -> None:
     transcriber.warmup()
 
     tts = create_tts(build_tts_config(settings))
-    llm = LLMClient(build_llm_config(settings), system_prompt=system_prompt)
+    llm = create_llm_client(build_llm_config(settings), system_prompt=system_prompt)
     router = Router(build_router_config(settings))
     memory = ConversationMemory()
 
