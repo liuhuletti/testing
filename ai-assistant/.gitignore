@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+*.pyo
+.env
+*.onnx
+*.onnx.json
+logs/
+memory/assistant.db
+.pytest_cache/

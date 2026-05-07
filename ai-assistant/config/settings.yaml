@@ -1,0 +1,44 @@
+speech:
+  model: small          # tiny/base/small/medium/large-v3
+  language: fi
+  device: auto          # auto | cpu | cuda
+  compute_type: int8    # int8 (nopea) | float16 (gpu) | float32
+  sample_rate: 16000
+  vad:
+    enabled: true
+    aggressiveness: 2          # 0–3, 3 = tiukin hiljaisuuden suodatus
+    silence_threshold_ms: 800  # hiljaisuus tätä pidempään → lausuma valmis
+    max_recording_s: 30        # turvaraja
+  wake_word:
+    enabled: false             # true ottaa wake wordin käyttöön
+    phrase: "hei kaisa"
+    timeout_s: 10              # aika kuunnella komento wake wordin jälkeen
+
+tts:
+  backend: piper               # piper | elevenlabs
+  piper:
+    executable: piper           # Windows: C:/piper/piper.exe
+    model: fi_FI-harri-medium.onnx  # lataa: https://huggingface.co/rhasspy/piper-voices
+    speaker: 0
+    speed: 1.0
+  elevenlabs:
+    voice_id: ""               # aseta .env:ssä tai tässä
+    model: eleven_multilingual_v2
+    stability: 0.5
+    similarity_boost: 0.75
+
+llm:
+  model: claude-sonnet-4-6
+  max_tokens: 1024
+  temperature: 1.0             # claude käyttää oletuksena 1.0
+  history_turns: 10            # montako vuoroparia muistissa
+
+router:
+  confidence_threshold: 0.6   # alle tämän → general LLM, ei moduulia
+
+memory:
+  db_path: memory/assistant.db
+
+logging:
+  level: INFO
+  file: logs/assistant.log

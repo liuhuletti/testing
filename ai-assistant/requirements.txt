@@ -1,0 +1,25 @@
+# ── Core AI & STT ──────────────────────────────────────────────────────────────
+faster-whisper>=1.0.3           # offline STT, hyvä suomen tuki
+anthropic>=0.40.0               # Claude API
+
+# ── TTS ────────────────────────────────────────────────────────────────────────
+piper-tts>=1.2.0                # offline TTS (Windows: pip install piper-tts)
+elevenlabs>=1.50.0              # online TTS varavaihtoehtona
+
+# ── Audio I/O ──────────────────────────────────────────────────────────────────
+sounddevice>=0.5.1              # äänikortti I/O
+soundfile>=0.12.1               # wav-tiedostojen luku/kirjoitus
+numpy>=1.26.0                   # audiopuskurien käsittely
+webrtcvad>=2.0.10               # Voice Activity Detection (VAD)
+
+# ── Config & env ──────────────────────────────────────────────────────────────
+pyyaml>=6.0.2
+python-dotenv>=1.0.1
+
+# ── Persistence & memory ──────────────────────────────────────────────────────
+sqlalchemy>=2.0.36              # SQLite ORM
+
+# ── Testing ────────────────────────────────────────────────────────────────────
+pytest>=8.3.0
+pytest-asyncio>=0.24.0
+pytest-mock>=3.14.0
