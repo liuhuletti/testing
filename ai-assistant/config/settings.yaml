@@ -28,11 +28,7 @@ tts:
     similarity_boost: 0.75
 
 llm:
-  # Malli valitaan automaattisesti LLM_BACKEND-ympäristömuuttujan mukaan.
-  # LLM_BACKEND=gemini  → gemini-2.0-flash (oletus)
-  # LLM_BACKEND=claude  → claude-sonnet-4-6 (oletus)
-  # Voit ylikirjoittaa mallin tässä:
-  # model: gemini-2.0-flash
+  model: gemini-1.5-flash
   max_tokens: 1024
   temperature: 1.0
   history_turns: 10            # montako vuoroparia muistissa
