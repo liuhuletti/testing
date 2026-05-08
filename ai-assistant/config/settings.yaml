@@ -28,7 +28,7 @@ tts:
     similarity_boost: 0.75
 
 llm:
-  model: gemini-1.5-flash
+  model: gemini-2.0-flash-lite
   max_tokens: 1024
   temperature: 1.0
   history_turns: 10            # montako vuoroparia muistissa
