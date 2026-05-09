@@ -146,6 +146,11 @@ class AudioListener:
         return b"".join(voiced_frames)
 
     def _is_speech(self, frame: bytes) -> bool:
+        # Energiakynnys ennen VAD:ia – suodattaa vahvistetun taustamelun
+        arr = np.frombuffer(frame, dtype=np.int16).astype(np.float32) / 32768.0
+        rms = np.sqrt(np.mean(arr ** 2))
+        if rms < 0.01:
+            return False
         try:
             return self._vad.is_speech(frame, self.cfg.sample_rate)
         except Exception:
