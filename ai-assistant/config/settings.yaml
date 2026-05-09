@@ -28,7 +28,8 @@ tts:
     similarity_boost: 0.75
 
 llm:
-  model: gemini-2.0-flash-lite
+  # model valitaan automaattisesti LLM_BACKEND:n mukaan
+  # gemini -> gemini-2.0-flash, claude -> claude-sonnet-4-6
   max_tokens: 1024
   temperature: 1.0
   history_turns: 10            # montako vuoroparia muistissa
