@@ -3,8 +3,8 @@ speech:
   language: fi
   device: auto          # auto | cpu | cuda
   compute_type: int8    # int8 (nopea) | float16 (gpu) | float32
-  sample_rate: 16000
-  input_device: 2       # Focusrite Scarlett Solo - Analogue 1+2 MME
+  sample_rate: 48000
+  input_device: 1       # Focusrite Scarlett Solo - Analogue 1+2 MME
   vad:
     enabled: true
     aggressiveness: 1          # 0–3, 3 = tiukin hiljaisuuden suodatus
