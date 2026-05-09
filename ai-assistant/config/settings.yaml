@@ -7,7 +7,7 @@ speech:
   input_device: 2       # Focusrite Scarlett Solo - Analogue 1+2 MME
   vad:
     enabled: true
-    aggressiveness: 2          # 0–3, 3 = tiukin hiljaisuuden suodatus
+    aggressiveness: 1          # 0–3, 3 = tiukin hiljaisuuden suodatus
     silence_threshold_ms: 800  # hiljaisuus tätä pidempään → lausuma valmis
     max_recording_s: 30        # turvaraja
   wake_word:
