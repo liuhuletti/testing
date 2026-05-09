@@ -46,6 +46,7 @@ def build_listener_config(settings: dict) -> ListenerConfig:
         max_recording_s=vad.get("max_recording_s", 30),
         wake_word=ww.get("phrase") if ww.get("enabled") else None,
         wake_word_timeout_s=ww.get("timeout_s", 10),
+        input_device=s.get("input_device", None),
     )
 
 
@@ -74,6 +75,7 @@ def build_tts_config(settings: dict) -> TTSConfig:
         elevenlabs_model=el.get("model", "eleven_multilingual_v2"),
         elevenlabs_stability=el.get("stability", 0.5),
         elevenlabs_similarity_boost=el.get("similarity_boost", 0.75),
+        output_device=s.get("output_device", None),
     )
 
 

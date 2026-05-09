@@ -30,6 +30,8 @@ class TTSConfig:
     elevenlabs_model: str = "eleven_multilingual_v2"
     elevenlabs_stability: float = 0.5
     elevenlabs_similarity_boost: float = 0.75
+    # Äänilaite
+    output_device: int | None = None  # None = järjestelmän oletus
 
 
 class TTSEngine(ABC):

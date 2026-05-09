@@ -101,6 +101,7 @@ class PiperTTS(TTSEngine):
                     samplerate=sample_rate,
                     channels=1,
                     dtype="float32",
+                    device=self.cfg.output_device,
                 )
                 self._current_stream.start()
                 chunk = 1024

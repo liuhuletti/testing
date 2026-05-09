@@ -36,6 +36,7 @@ class ListenerConfig:
     max_recording_s: float = 30.0
     wake_word: str | None = None
     wake_word_timeout_s: float = 10.0
+    input_device: int | None = None  # None = järjestelmän oletus
 
     def __post_init__(self) -> None:
         if self.sample_rate not in SUPPORTED_RATES:
@@ -103,6 +104,7 @@ class AudioListener:
             blocksize=frame_size,
             dtype="int16",
             channels=1,
+            device=self.cfg.input_device,
         ) as stream:
             while True:
                 raw_frame, _ = stream.read(frame_size)

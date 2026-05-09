@@ -4,6 +4,7 @@ speech:
   device: auto          # auto | cpu | cuda
   compute_type: int8    # int8 (nopea) | float16 (gpu) | float32
   sample_rate: 16000
+  input_device: 25      # Focusrite Scarlett Solo - Analogue 1+2 WASAPI
   vad:
     enabled: true
     aggressiveness: 2          # 0–3, 3 = tiukin hiljaisuuden suodatus
@@ -16,6 +17,7 @@ speech:
 
 tts:
   backend: piper               # piper | elevenlabs
+  output_device: 23            # Focusrite Scarlett Solo - Speakers WASAPI
   piper:
     executable: piper           # Windows: C:/piper/piper.exe
     model: fi_FI-harri-medium.onnx  # lataa: https://huggingface.co/rhasspy/piper-voices
