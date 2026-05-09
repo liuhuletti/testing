@@ -37,6 +37,7 @@ class ListenerConfig:
     wake_word: str | None = None
     wake_word_timeout_s: float = 10.0
     input_device: int | None = None  # None = järjestelmän oletus
+    input_gain: float = 1.0          # vahvistus ennen VAD:ia (esim. 30.0)
 
     def __post_init__(self) -> None:
         if self.sample_rate not in SUPPORTED_RATES:
@@ -108,7 +109,12 @@ class AudioListener:
         ) as stream:
             while True:
                 raw_frame, _ = stream.read(frame_size)
-                frame_bytes = bytes(raw_frame)
+                if self.cfg.input_gain != 1.0:
+                    arr = np.frombuffer(bytes(raw_frame), dtype=np.int16).astype(np.float32)
+                    arr = np.clip(arr * self.cfg.input_gain, -32768, 32767).astype(np.int16)
+                    frame_bytes = arr.tobytes()
+                else:
+                    frame_bytes = bytes(raw_frame)
 
                 if len(frame_bytes) < self._frame_bytes:
                     continue

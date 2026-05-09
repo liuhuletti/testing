@@ -47,6 +47,7 @@ def build_listener_config(settings: dict) -> ListenerConfig:
         wake_word=ww.get("phrase") if ww.get("enabled") else None,
         wake_word_timeout_s=ww.get("timeout_s", 10),
         input_device=s.get("input_device", None),
+        input_gain=s.get("input_gain", 1.0),
     )
 
 
