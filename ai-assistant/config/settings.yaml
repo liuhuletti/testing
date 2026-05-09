@@ -4,7 +4,7 @@ speech:
   device: auto          # auto | cpu | cuda
   compute_type: int8    # int8 (nopea) | float16 (gpu) | float32
   sample_rate: 16000
-  # input_device: 36    # aseta Windows-oletukseksi ja jätä tämä kommentille
+  input_device: 9       # Pää-äänensieppausohjain (DirectSound default)
   input_gain: 30.0      # vahvistus matalalle signaalitasolle
   vad:
     enabled: true
